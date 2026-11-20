@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'colegio/estilo.css' %}">
+</head>
+<body>
+    <p>¿Borrar "{{ obj }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn rojo">Sí, borrar</button>
+        <a href="{% url volver %}">Cancelar</a>
+    </form>
+</body>
+</html>

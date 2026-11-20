@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'colegio/estilo.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'ver_carreras' %}">Carreras</a>
+        <a href="{% url 'ver_estudiantes' %}">Estudiantes</a>
+        <a href="{% url 'ver_notas' %}">Notas</a>
+    </nav>
+    <h1>{{ titulo }}</h1>
+    <a href="{% url url_crear %}" class="btn">Crear</a>
+    <table>
+        {% for item in datos %}
+        <tr>
+            <td>{{ item }}</td>
+            <td>
+                <a href="{% url url_editar item.id %}" class="btn">Editar</a>
+                <a href="{% url url_borrar item.id %}" class="btn rojo">Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
